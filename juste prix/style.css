@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #0077cc;
+}
+
+.logo{
+    height: 15vh;
+}
+.container {
+    width: 50vh;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: darkblue;
+    border: 5px solid grey;
+    border-radius: 20px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.516);
+}
+
+.animation-container {
+    position: relative;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#objetADeviner{
+    width: 50vh;
+    height: 25vh;
+    margin-top: 15px;
+}
+
+#messageZone{
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+#recommencer  {
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.gifcenter  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#winGif{
+    width: 40vh;
+    height: 25vh;
+}
+
+
+#looserGif{
+    width: 40vh;
+    height: 25vh;    
+}
+
+#rotationImage {
+    max-width: 80%;
+    margin-top: 250px;
+    height: auto;
+    animation: rotate 3s linear infinite; 
+}
+
+.loading-bar {
+    width: 0;
+    height: 10px;
+    background-color: #0077cc;
+    position: absolute;
+    top: 500px;
+    bottom: 0;
+    left: 0;
+}
+
+
+.jeu-container {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+#winGif, #looserGif {
+    max-width: 100%;
+    margin-top: 20px;
+}
+@keyframes rotate {
+    from {
+        transform: rotatex(0deg);
+    }
+    to {
+        transform: rotatex(360deg);
+    }
+}

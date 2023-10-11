@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="animation-container" id="animationContainer">
+            <img src="./Logo_Le_Juste_Prix.png" alt="Image en rotation" id="rotationImage">
+            <div class="loading-bar" id="loadingBar"></div>
+        </div>
+
+        <div class="jeu-container hidden" id="jeuContainer">
+            <img src="./Logo_Le_Juste_Prix.png"  class="logo" srcset="">
+            <div id="imageContainer">
+                <img src="objet1.jpg" alt="Objet à deviner" id="objetADeviner">
+            </div>
+            <div id="messageZone">Choisissez un prix entre 1 et 100€.</div>
+            <input type="number" id="proposition" placeholder="Entrez votre estimation">
+            <button id="valider">Valider</button>
+            <button id="recommencer" class="hidden">Recommencer</button>
+            <div class="gifcenter">
+            <img id="winGif" src="win.gif" class="hidden" alt="Gagné">
+            <img id="looserGif" src="looser.gif" class="hidden" alt="Perdu">
+             </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
