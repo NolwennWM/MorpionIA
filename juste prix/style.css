@@ -39,7 +39,7 @@ body {
 }
 
 #recommencer  {
-    display: block;
+    display: none;
     margin: auto;
     margin-top: 15px;
 }
@@ -52,12 +52,18 @@ body {
 #winGif{
     width: 40vh;
     height: 25vh;
+    border-radius: 25px;  
+    border: 2px solid white;
+    box-shadow: 10px 5px 5px rgba(233, 231, 231, 0.516);
 }
 
 
 #looserGif{
     width: 40vh;
-    height: 25vh;    
+    height: 25vh;  
+    border-radius: 25px;  
+    border: 2px solid white;
+    box-shadow: 10px 5px 5px rgba(233, 231, 231, 0.516);
 }
 
 #rotationImage {

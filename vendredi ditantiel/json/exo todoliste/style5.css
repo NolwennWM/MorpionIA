@@ -1,0 +1,85 @@
+.conteneur-todo {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.deco {
+  height: 150px;
+  background-color: #4c4c9d;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 20px;
+  color: white;
+}
+
+input[type="text"] {
+  width: 70%;
+  margin-left: 40px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #f7996e;
+  color: #4c4c9d;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: -10px;
+  padding: 0;
+}
+
+li {
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #edeeed;
+}
+
+li:hover {
+  background-color: #dddddd;
+}
+li::before {
+  content: "";
+}
+.bouton-supprimer {
+  background-color: transparent;
+  color: black;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+  border: none;
+  width: fit-content;
+}
+
+.bouton-supprimer:hover {
+  background-color: #4c4c9d;
+}
+
+.tache-faite {
+  text-decoration: line-through;
+  color: white;
+}
+
+li.tache-terminee {
+  background-color: #888888;
+}
+.tache-terminee::before {
+  content: "\2713";
+  text-decoration: none;
+  margin-right: 10px;
+  color: white;
+  font-size: 20px;
+}

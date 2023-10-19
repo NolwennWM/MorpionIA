@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const winGif = document.getElementById('winGif');
     const looserGif = document.getElementById('looserGif');
 
-    const images = ["objet1.jpg", "objet2.jpg", "objet3.jpg"];
+    const images = ["objet1.jpg", "objet2.jpg", "objet3.jpg", "objet4.jpg", "objet5.jpg", "objet6.jpg","objet7.jpg","objet8.jpg"];
     let imageIndex = 0; 
 
     function afficherImageActuelle() {
@@ -55,8 +55,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function chargerJeu() {
        
         let nombreSecret = Math.floor(Math.random() * 100) + 1;
+        console.log(nombreSecret);
         let nombreEssais = 7; 
         let essaisRestants = nombreEssais;
+     
 
      
         function comparerProposition() {
@@ -64,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (isNaN(proposition) || proposition < 1 || proposition > 100) {
                 messageZone.textContent = 'Choisissez un prix entre 1 et 100€..';
+              
             } else {
                 nombreEssais--;
 
@@ -108,3 +111,6 @@ document.addEventListener('DOMContentLoaded', function () {
         recommencerButton.addEventListener('click', recommencerJeu);
     }
 });
+
+
+
