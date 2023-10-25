@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+#word-display {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+#error-count, #letters-guessed, #available-letters {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#result {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#hangman-display {
+    margin-top: 20px;
+}
+
+#hangman-img {
+    width: 200px;
+}
+
+button {
+    font-size: 16px;
+    margin: 5px;
+}
+
+#button-container {
+    margin: 20px;
+}

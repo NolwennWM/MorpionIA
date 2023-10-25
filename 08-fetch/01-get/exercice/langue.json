@@ -1,0 +1,21 @@
+{
+    "fr": {
+        "h1": "Votre hero se trouve ici !!!",
+        "p":"vos héros participeront à vos evenment préférés"
+      
+        
+    },
+    "en": {
+        "h1": "Your hero is here !!!",
+        "p": "your heroes will take part in your favourite events"
+     
+       
+    },
+    "es": {
+       
+        "h1": "¡Tu héroe está aquí!",
+        "p": "tus héroes participarán en tus eventos favoritos"
+       
+    }
+
+}

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // JavaScript
 document.addEventListener('DOMContentLoaded', () => {
     // Exercice 1
@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
-=======
 // JavaScript
 document.addEventListener('DOMContentLoaded', () => {
     // Exercice 1
@@ -90,4 +89,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
->>>>>>> c3aa0f2658496ced8324c385f94b27b9a695c7e3
+
