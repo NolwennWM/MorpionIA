@@ -1,6 +1,10 @@
 let board = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
 let gameOver = false;
+const listGames = [];
+let game = {choice:[], victory:false};
+let n = 0;
+let wrongChoice = [];
 
 
 function togglePlayer() {
@@ -12,13 +16,19 @@ function makeMove(index) {
     
     
     board[index] = currentPlayer;
+    // IA
+    game.choice.push({player:currentPlayer, position:index});
     updateCellUI(index);
-    
+    n++
     if (checkWinner(currentPlayer)) {
         updateResultUI(`${currentPlayer} a gagné !`); 
+        game.victory = false;
+        listGames.push(game);
         gameOver = true;
     } else if (isBoardFull()) {
         updateResultUI("Match nul !");
+        game.victory = false;
+        listGames.push(game);
         gameOver = true;
     } else {
         togglePlayer();
@@ -56,6 +66,8 @@ function isBoardFull() {
     function resetBoard() {
         board = ['', '', '', '', '', '', '', '', ''];
         currentPlayer = 'X';
+        n=0
+        game = {choice:[], victory:false};
         gameOver = false;
         updateResultUI('');
         Array.from(document.getElementsByClassName('cell')).forEach(cell => cell.innerText = '');
@@ -74,44 +86,50 @@ function makeComputerMove() {
             }
         }
 
-        let computerMove = -1;
-
-       
-        for (let i = 0; i < emptyCells.length; i++) {
-            const tempBoard = [...board];
-            tempBoard[emptyCells[i]] = 'O';
-            if (checkWinner('O', tempBoard)) {
-                computerMove = emptyCells[i];
-                break;
-            }
-        }
+        let computerMove = getGoodChoice();
+        console.log(computerMove);
+        
+        // for (let i = 0; i < emptyCells.length; i++) {
+        //     const tempBoard = [...board];
+        //     tempBoard[emptyCells[i]] = 'O';
+        //     if (checkWinner('O', tempBoard)) {
+        //         computerMove = emptyCells[i];
+        //         break;
+        //     }
+        // }
 
       
-        if (computerMove === -1) {
-            for (let i = 0; i < emptyCells.length; i++) {
-                const tempBoard = [...board];
-                tempBoard[emptyCells[i]] = 'X';
-                if (checkWinner('X', tempBoard)) {
-                    computerMove = emptyCells[i];
-                    break;
-                }
-            }
-        }
+        // if (computerMove === -1) {
+        //     for (let i = 0; i < emptyCells.length; i++) {
+        //         const tempBoard = [...board];
+        //         tempBoard[emptyCells[i]] = 'X';
+        //         if (checkWinner('X', tempBoard)) {
+        //             computerMove = emptyCells[i];
+        //             break;
+        //         }
+        //     }
+        // }
+        console.log(computerMove);
 
-        if (computerMove === -1) {
-            const randomIndex = Math.floor(Math.random() * emptyCells.length);
-            computerMove = emptyCells[randomIndex];
+        if (computerMove === null) {
+            computerMove = getRandomCase(emptyCells);
         }
         console.log(computerMove);
         setTimeout(() => {
             board[computerMove] = 'O';
+            // IA
+            game.choice.push({player:"O", position:computerMove});
             document.getElementsByClassName('cell')[computerMove].innerText = 'O';
-
+            n++
             if (checkWinner('O')) {
                 document.getElementById('result').innerText = `L'ordinateur a gagné !`;
+                game.victory = true;
+                listGames.push(game);
                 gameOver = true;
             } else if (isBoardFull()) {
+                game.victory = false;
                 document.getElementById('result').innerText = "Match nul !";
+                listGames.push(game);
                 gameOver = true;
             } else {
                 currentPlayer = 'X';
@@ -120,11 +138,57 @@ function makeComputerMove() {
     }
 }
 
+function getRandomCase(possibility)
+{
+    const randomIndex = Math.floor(Math.random() * possibility.length);
+    let index = possibility[randomIndex];
+    if(wrongChoice.includes(index) && possibility.length != wrongChoice.length)
+    {
+        index = getRandomCase(possibility);
+    }
+    return index;
+}
 
+function getGoodChoice()
+{
+    wrongChoice = [];
+    console.log("nb", n);
+    position = null;
+    for(let oldGame of listGames)
+    {
+        if(!oldGame.victory)
+        {
+            if(oldGame.choice[n] && !wrongChoice.includes(oldGame.choice[n].position))
+            {
+                wrongChoice.push(oldGame.choice[n].position);
+            }
+            continue;
+        }
+        
+        console.log(!oldGame.victory);
+        let i;
+        for(i =0; i< n; i++)
+        {
+            console.log(i,game.choice[i] , oldGame.choice[i]);
+            if(!isSamePosition(game.choice[i], oldGame.choice[i])) break;
+            console.log(oldGame,oldGame.choice[i+1], !oldGame.choice[i+1]);
+        }
+        if(!oldGame.choice[i])break;
+        console.log(board[i],board[i] === "");
+        position = oldGame.choice[i].position;
+        if(board[position] !== "") continue;
+        console.log(oldGame.choice[i].position);
+        
+    }
+    if(wrongChoice.includes(position))
+    position = null;
+    return position;
+}
 
-
-
-
+function isSamePosition(c1, c2)
+{
+    return c1.position === c2.position && c1.player === c2.player;
+}
 
 
 
